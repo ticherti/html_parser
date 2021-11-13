@@ -1,6 +1,9 @@
-import service.parser.WordsCounter;
+package com.github.ticherti.parser;
+
+import com.github.ticherti.parser.service.parser.WordsCounter;
 
 public class Main {
+
     private final static String URL = "http://www.timbrack.de/index.html#sharenow_campaign";
 
     public static void main(String[] args) {

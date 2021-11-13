@@ -1,4 +1,4 @@
-package service.parser;
+package com.github.ticherti.parser.service.parser;
 
 public interface Parser {
 
