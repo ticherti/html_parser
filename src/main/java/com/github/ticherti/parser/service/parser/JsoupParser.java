@@ -11,7 +11,6 @@ public class JsoupParser implements Parser {
     Logger log = LogManager.getLogger(JsoupParser.class.getName());
 
     public String parseAllWords(String url) {
-
         String text = "";
         try {;
             Document doc = Jsoup.connect(url).get();
