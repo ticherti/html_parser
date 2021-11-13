@@ -11,21 +11,21 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class WordsCounter {
-    Logger log = LogManager.getLogger(WordsCounter.class.getName());
+public class WordsHelper {
+    Logger log = LogManager.getLogger(WordsHelper.class.getName());
 
     private final Parser parser = new JsoupParser();
 
-    public Map<String, Integer> countWords(String url) {
-        return getWords(url).stream().collect(Collectors.groupingBy(e -> e.toUpperCase(Locale.ROOT), Collectors.reducing(0, e -> 1, Integer::sum)));
-    }
-
-    private List<String> getWords(String url) {
+    public List<String> getWords(String url) {
         if (url == null) {
             log.info("Url is null.");
             throw new ParserException("The url's wrong. Url = " + url);
         }
-        //        regex:  pick one of {' ', ',', '.', '! ', '?','"', ';', ':', '[', ']', '(', ')', '\n', '\r', '\t'}
-        return List.of(parser.parseAllWords(url).split("[ ,.!?\";:\\[\\]()\\n\\r\\t]+"));
+        //regex:  pick one of {' ', ',', '.', '! ', '?','"', ';', ':', '[', ']', '(', ')', '{', '}','\n', '\r', '\t'}
+        return List.of(parser.parseAllWords(url).split("[ ,.!?\";:\\[\\](){}\\n\\r\\t]+"));
+    }
+
+    public Map<String, Integer> countWords(String url) {
+        return getWords(url).stream().collect(Collectors.groupingBy(e -> e.toUpperCase(Locale.ROOT), Collectors.reducing(0, e -> 1, Integer::sum)));
     }
 }

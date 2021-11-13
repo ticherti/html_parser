@@ -12,7 +12,7 @@ public class Main {
         Repository repo = new MapRepository();
         ParsedPageGenerator pg = new ParsedPageGenerator();
         repo.create(pg.generateParsedPage(url));
-        repo.create(pg.generateParsedPage("https://www.simbirsoft.com/"));
+
         repo.getAll().forEach(System.out::println);
     }
 }

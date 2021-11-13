@@ -4,7 +4,7 @@ import com.github.ticherti.parser.model.ParsedPage;
 
 public class ParsedPageGenerator {
     public ParsedPage generateParsedPage(String url) {
-        WordsCounter wc = new WordsCounter();
+        WordsHelper wc = new WordsHelper();
         return new ParsedPage(url, wc.countWords(url));
     }
 }

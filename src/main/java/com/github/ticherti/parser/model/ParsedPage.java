@@ -27,8 +27,8 @@ public class ParsedPage {
         StringBuilder sb = new StringBuilder();
         sb.append("Page url is ")
                 .append(url)
-                .append("\n Words are:");
-        words.forEach((k, v) ->sb.append(String.format("%s - %d\n", k, v)));
+                .append("\n Words are:\n");
+        words.forEach((k, v) -> sb.append(String.format("%s - %d\n", k, v)));
         return sb.toString();
     }
 
