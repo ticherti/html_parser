@@ -13,7 +13,8 @@ import java.util.stream.Collectors;
 
 public class WordsHelper {
     Logger log = LogManager.getLogger(WordsHelper.class.getName());
-
+    //regex:  pick one of {' ', ',', '.', '! ', '?','"', ';', ':', '[', ']', '(', ')', '{', '}','\n', '\r', '\t'}
+    private static final String DELIMITERS = "[ ,.!?\";:\\[\\](){}\\n\\r\\t]+";
     private final Parser parser = new JsoupParser();
 
     public List<String> getWords(String url) {
@@ -21,8 +22,7 @@ public class WordsHelper {
             log.info("Url is null.");
             throw new ParserException("The url's wrong. Url = " + url);
         }
-        //regex:  pick one of {' ', ',', '.', '! ', '?','"', ';', ':', '[', ']', '(', ')', '{', '}','\n', '\r', '\t'}
-        return List.of(parser.parseAllWords(url).split("[ ,.!?\";:\\[\\](){}\\n\\r\\t]+"));
+        return List.of(parser.parseAllWords(url).split(DELIMITERS));
     }
 
     public Map<String, Integer> countWords(String url) {

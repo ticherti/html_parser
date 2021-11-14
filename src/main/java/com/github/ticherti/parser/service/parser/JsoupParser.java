@@ -12,12 +12,11 @@ public class JsoupParser implements Parser {
 
     public String parseAllWords(String url) {
         String text = "";
-        try {;
+        try {
             Document doc = Jsoup.connect(url).get();
             text = doc.body().text();
         } catch (IOException | IllegalArgumentException e) {
             log.info("Incorrect url " + url + " " + e.getMessage());
-            e.printStackTrace();
         }
         return text;
     }

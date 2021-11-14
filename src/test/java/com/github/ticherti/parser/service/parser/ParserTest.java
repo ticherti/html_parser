@@ -21,7 +21,7 @@ class ParserTest {
     }
 
     @Test
-    void parseAllWords() {
+    void parseAllWordsAsText() {
         String actual = parser.parseAllWords("http://www2.latech.edu/~acm/helloworld/java.html");
         assertEquals(expectedText, actual);
     }

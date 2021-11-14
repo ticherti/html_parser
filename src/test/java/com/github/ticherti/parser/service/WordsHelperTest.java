@@ -15,7 +15,7 @@ class WordsHelperTest {
     }
 
     @Test
-    void parseAllWords() {
+    void parseListOfAllWordsFromURL() {
         List<String> actual = wc.getWords("http://www2.latech.edu/~acm/helloworld/java.html");
         assertEquals(EXPECTED_LIST, actual);
     }
